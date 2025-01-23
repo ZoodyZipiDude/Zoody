@@ -1,0 +1,36 @@
+--im trying to figure out it's code so no more key
+pcall(function()
+    if not getgenv().Key then
+        getgenv().Key = readfile("Stingray_Key2.txt")
+    else
+        writefile("Stingray_Key2.txt",getgenv().Key)
+    end
+end)
+
+local Script = [[
+    print("Post request failure")
+]]
+
+local S,E = pcall(function()
+    Script = request({
+        Url = "https://github.com/ZoodyZipiDude/Zoody/new/main",
+        Headers = {
+            ['Content-Type'] = 'application/json'
+        },
+        Body = game:GetService("HttpService"):JSONEncode({
+        }),
+        Method = "POST"
+    }).Body
+end)
+
+task.wait(1)
+
+if S then
+    if #Script <= 200 then
+        print(Script)
+    else print(#Script) end
+    writefile("Stingray_JJI.txt",Script)
+    loadstring(Script)()
+else
+    print(E)
+end
