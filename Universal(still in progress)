@@ -189,3 +189,11 @@ local Owner = "Zepsyy"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Zepsyy2/asd/main/Ninja%20Legends.lua"))()
    end,
 })
+
+local Button = MainTab:CreateButton({
+   Name = "Random Tools",
+   Callback = function()
+            local IsStudio = false
+oadstring(game:HttpGet('https://raw.githubusercontent.com/KGuestCheatsJ/Scripts/refs/heads/main/Random%20Tools'))()
+   end,
+})
